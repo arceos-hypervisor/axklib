@@ -1,6 +1,6 @@
 <h1 align="center">axklib</h1>
 
-<p align="center">Small Kernel Helper Abstractions</p>
+<p align="center">小型内核辅助抽象库</p>
 
 <div align="center">
 
@@ -11,36 +11,36 @@
 
 </div>
 
-English | [中文](README_CN.md)
+[English](README.md) | 中文
 
 # Introduction
 
-`axklib` is a small `#![no_std]` kernel helper abstraction crate used across the microkernel and related low-level components. It defines a platform-implemented trait for MMIO mapping, busy-wait timing, and IRQ registration, and also provides lightweight convenience modules for ergonomic call sites.
+`axklib` 是一个用于微内核及相关底层组件的小型 `#![no_std]` 内核辅助抽象库。它定义了由平台层实现的 trait，用于 MMIO 映射、忙等待计时和 IRQ 注册，并额外提供了一组便于调用的轻量级辅助模块。
 
-This library exports the following core items:
+该库导出以下核心项：
 
-- **`Klib`** - The external trait that platform or board layers implement
-- **`IrqHandler`** - Function pointer type used for IRQ callback registration
-- **`AxResult`**, **`PhysAddr`**, **`VirtAddr`** - Re-exported result and address types for kernel helpers
+- **`Klib`** - 由平台或板级层实现的外部 trait
+- **`IrqHandler`** - IRQ 回调注册使用的函数指针类型
+- **`AxResult`**、**`PhysAddr`**、**`VirtAddr`** - 重新导出的结果类型与地址类型
 
-It also provides three convenience modules:
+此外还提供三个便捷模块：
 
-- **`mem`** - Re-exports `iomap`
-- **`time`** - Re-exports `busy_wait`
-- **`irq`** - Re-exports `register` and `set_enable`
+- **`mem`** - 重新导出 `iomap`
+- **`time`** - 重新导出 `busy_wait`
+- **`irq`** - 重新导出 `register` 和 `set_enable`
 
 ## Quick Start
 
 ### Requirements
 
-- Rust nightly toolchain
-- Rust components: rust-src, clippy, rustfmt
+- Rust nightly 工具链
+- Rust 组件：rust-src、clippy、rustfmt
 
 ```bash
-# Install rustup (if not installed)
+# 安装 rustup（如果尚未安装）
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-# Install nightly toolchain and components
+# 安装 nightly 工具链与所需组件
 rustup install nightly
 rustup component add rust-src clippy rustfmt --toolchain nightly
 ```
@@ -48,13 +48,13 @@ rustup component add rust-src clippy rustfmt --toolchain nightly
 ### Run Check and Test
 
 ```bash
-# 1. Enter the repository
+# 1. 进入仓库目录
 cd axklib
 
-# 2. Code check
+# 2. 代码检查
 ./scripts/check.sh
 
-# 3. Run tests
+# 3. 运行测试
 ./scripts/test.sh
 ```
 
@@ -62,7 +62,7 @@ cd axklib
 
 ### Installation
 
-Add to your `Cargo.toml`:
+将以下依赖加入 `Cargo.toml`：
 
 ```toml
 [dependencies]
@@ -106,21 +106,21 @@ fn main() {
 
 ### Documentation
 
-Generate and view API documentation:
+生成并查看 API 文档：
 
 ```bash
 cargo doc --no-deps --open
 ```
 
-Online documentation: [docs.rs/axklib](https://docs.rs/axklib)
+在线文档： [docs.rs/axklib](https://docs.rs/axklib)
 
 # Contributing
 
-1. Fork the repository and create a branch
-2. Run local check: `./scripts/check.sh`
-3. Run local tests: `./scripts/test.sh`
-4. Submit PR and pass CI checks
+1. Fork 仓库并创建分支
+2. 本地运行检查：`./scripts/check.sh`
+3. 本地运行测试：`./scripts/test.sh`
+4. 提交 PR 并通过 CI 检查
 
 # License
 
-Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for details.
+本项目基于 Apache License 2.0 许可证发布。详见 [LICENSE](LICENSE)。
