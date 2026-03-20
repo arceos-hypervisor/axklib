@@ -17,9 +17,9 @@
 //! These tests verify that the `Klib` trait can be implemented correctly
 //! and that the convenience modules re-export the expected functions.
 
-use core::time::Duration;
-use axklib::{AxResult, IrqHandler, Klib, PhysAddr, VirtAddr};
 use axklib::klib;
+use axklib::{AxResult, IrqHandler, Klib, PhysAddr, VirtAddr};
+use core::time::Duration;
 
 /// Mock implementation of Klib for testing purposes.
 struct MockKlib;
